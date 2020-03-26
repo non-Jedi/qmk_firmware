@@ -13,7 +13,7 @@
 // Combos
 enum combos {
 	WE,SD,DF,XC,CV,
-	UI,IO,OP,HJ,JK,KL,NM,MC,
+	UI,IO,HJ,JK,KL,NM,MC,
 	GB,FV,HN,
 	SDJK
 };
@@ -29,7 +29,6 @@ const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
 
 const uint16_t PROGMEM ui_combo[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM op_combo[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
@@ -50,9 +49,8 @@ combo_t key_combos[COMBO_COUNT] = {
     [XC] = COMBO(xc_combo, KC_MINS),
     [CV] = COMBO(cv_combo, KC_ENT),
 
-    [UI] = COMBO(ui_combo, KC_ESC),
-    [IO] = COMBO(io_combo, KC_QUOT),
-    [OP] = COMBO(op_combo, KC_BSLS),
+    [UI] = COMBO(ui_combo, KC_QUOT),
+    [IO] = COMBO(io_combo, KC_BSLS),
     [HJ] = COMBO(hj_combo, KC_LT),
     [JK] = COMBO(jk_combo, KC_EQL),
     [KL] = COMBO(kl_combo, KC_GT),
