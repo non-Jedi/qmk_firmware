@@ -12,7 +12,7 @@
 
 // Combos
 enum combos {
-	WE,SD,DF,XC,CV,
+	WE,ER,SD,DF,XC,CV,
 	UI,IO,HJ,JK,KL,NM,MC,
 	GB,FV,HN,
 	SDJK
@@ -22,6 +22,7 @@ enum combos {
 // define it here. Note this if you change your layout!
 
 const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
+const uint16_t PROGMEM er_combo[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
@@ -44,6 +45,7 @@ const uint16_t PROGMEM sdjk_combo[] = {KC_J, KC_K, KC_S, KC_D, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
 	// Horizontal Chords
     [WE] = COMBO(we_combo, KC_ESC),
+    [ER] = COMBO(er_combo, KC_DEL),
     [SD] = COMBO(sd_combo, KC_BSPC),
     [DF] = COMBO(df_combo, KC_TAB),
     [XC] = COMBO(xc_combo, KC_MINS),
@@ -63,15 +65,14 @@ combo_t key_combos[COMBO_COUNT] = {
     [HN] = COMBO(hn_combo, KC_ENT)
 };
 
-// Blank template at the bottom
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_gergoplex(
-        MT(MOD_LALT, KC_Q), KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,   MT(MOD_RALT, KC_P),
-        MT(MOD_LCTL, KC_A), KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K,    KC_L,   MT(MOD_RCTL, KC_SCLN),
-        MT(MOD_RSFT, KC_Z), KC_X, KC_C, KC_V, KC_B,   KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RSFT, KC_SLSH),
+        KC_Q,               KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,   KC_P,
+        KC_A,               KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K,    KC_L,   MT(MOD_RCTL, KC_SCLN),
+        MT(MOD_LSFT, KC_Z), KC_X, KC_C, KC_V, KC_B,   KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RSFT, KC_SLSH),
 
-        MT(MOD_LGUI, KC_ESC), MT(MOD_LSFT, KC_TAB), LT(SYMB, KC_BSPC), // Left
-        LT(NUMB, KC_SPC), MT(MOD_RSFT, KC_ENT), MT(MOD_RALT, KC_DEL)   // Right
+        MT(MOD_LGUI, KC_ESC), MT(MOD_LCTL, KC_TAB), OSL(SYMB), // Left
+        LT(NUMB, KC_SPC), MT(MOD_LALT, KC_ENT), MT(MOD_RSFT, KC_DEL)   // Right
         ),
 
     [SYMB] = LAYOUT_gergoplex(
