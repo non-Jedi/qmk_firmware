@@ -12,8 +12,8 @@
 
 // Combos
 enum combos {
-	WE,ER,SD,DF,XC,CV,
-	UI,IO,HJ,JK,KL,NM,MC,
+	WE,ER,AS,SD,DF,XC,CV,
+	UI,IO,HJ,JK,KL,LCOL,NM,MC,
 	GB,FV,HN,
 	SDJK
 };
@@ -23,6 +23,7 @@ enum combos {
 
 const uint16_t PROGMEM we_combo[] = {KC_W, KC_E, COMBO_END};
 const uint16_t PROGMEM er_combo[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM as_combo[] = {KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
@@ -33,6 +34,7 @@ const uint16_t PROGMEM io_combo[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM lcol_combo[] = {KC_L, KC_SCLN, COMBO_END};
 const uint16_t PROGMEM nm_combo[] = {KC_N, KC_M, COMBO_END}; 
 const uint16_t PROGMEM mc_combo[] = {KC_M, KC_COMM, COMBO_END};
 
@@ -46,6 +48,7 @@ combo_t key_combos[COMBO_COUNT] = {
 	// Horizontal Chords
     [WE] = COMBO(we_combo, KC_ESC),
     [ER] = COMBO(er_combo, KC_DEL),
+    [AS] = COMBO(as_combo, KC_LSHIFT),
     [SD] = COMBO(sd_combo, KC_BSPC),
     [DF] = COMBO(df_combo, KC_TAB),
     [XC] = COMBO(xc_combo, KC_MINS),
@@ -56,6 +59,7 @@ combo_t key_combos[COMBO_COUNT] = {
     [HJ] = COMBO(hj_combo, KC_LT),
     [JK] = COMBO(jk_combo, KC_EQL),
     [KL] = COMBO(kl_combo, KC_GT),
+    [LCOL] = COMBO(lcol_combo, KC_RSHIFT),
     [NM] = COMBO(nm_combo, KC_QUOT),
     [MC] = COMBO(mc_combo, KC_UNDS), // m,
 	
@@ -68,11 +72,11 @@ combo_t key_combos[COMBO_COUNT] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT_gergoplex(
         KC_Q,               KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,   KC_P,
-        KC_A,               KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K,    KC_L,   MT(MOD_RCTL, KC_SCLN),
+        KC_A,               KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K,    KC_L,   KC_SCLN,
         MT(MOD_LSFT, KC_Z), KC_X, KC_C, KC_V, KC_B,   KC_N, KC_M, KC_COMM, KC_DOT, MT(MOD_RSFT, KC_SLSH),
 
-        MT(MOD_LGUI, KC_ESC), MT(MOD_LCTL, KC_TAB), OSL(SYMB), // Left
-        LT(NUMB, KC_SPC), MT(MOD_LALT, KC_ENT), MT(MOD_RSFT, KC_DEL)   // Right
+        KC_LGUI, MT(MOD_LCTL, KC_TAB), OSL(SYMB), // Left
+        LT(NUMB, KC_SPC), MT(MOD_LALT, KC_ENT), KC_RSHIFT   // Right
         ),
 
     [SYMB] = LAYOUT_gergoplex(
